@@ -13,8 +13,9 @@ Valid time zones listed here https://en.wikipedia.org/wiki/List_of_tz_database_t
 ## 2. Copy the Atlantis source directory within the same directory where the Dockerfile is stored <trunk>
 
 In the included Dockerfile this directory is trunk_6693 to indicate the code version 
-COPY <trunk_name>/.svn /app/.svn
-COPY <trunk_name>/atlantis /app/atlantis
+
+`COPY <trunk_name>/.svn /app/.svn`
+`COPY <trunk_name>/atlantis /app/atlantis`
 
 ## 3. Build the image and run to check it works, these commands are for Linux Ubuntu 20.04
 
@@ -58,3 +59,6 @@ enter the image, press ctrl+d to exit, change <mydockerimage> to the name of you
 
 `docker run --rm -ti <mydockerimage>:latest /bin/sh`
 
+
+### Maintainer
+Hem Nalini Morzaria-Luna hemnalini.morzarialuna@noaa.gov
