@@ -1,2 +1,60 @@
-# atlantisdockerbatchprivate
-Private docker repo with Atlantis
+# Dockerfile to run Atlantis
+
+## Dockerfile built on Ubuntu 20.04
+
+## To create the Docker image first edit the Dockerfile
+
+## 1. Change the following line to your time zone
+
+Valid time zones listed here https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+`ENV TZ America/Los_Angeles`
+
+## 2. Copy the Atlantis source directory within the same directory where the Dockerfile is stored <trunk>
+
+In the included Dockerfile this directory is trunk_6693 to indicate the code version 
+COPY <trunk_name>/.svn /app/.svn
+COPY <trunk_name>/atlantis /app/atlantis
+
+## 3. Build the image and run to check it works, these commands are for Linux Ubuntu 20.04
+
+edit dockerfile
+
+`nano Dockerfile`
+
+build dockerfile
+
+`docker build -t ampsdocker:latest .`
+
+list images, including intermediary images
+
+`docker images -a`
+
+enter the image, press ctrl+d to exit
+
+`docker run --rm -ti ampsdocker:latest /bin/sh`
+
+
+
+# General procedure to create and run a Docker image from a Dockerfile
+
+install docker
+
+`snap install docker`
+
+edit dockerfile
+
+`nano Dockerfile`
+
+build dockerfile, change <mydockerimage> to your preferred name
+
+`docker build -t <mydockerimage>:latest .`
+
+list images, including intermediary images
+
+`docker images -a`
+
+enter the image, press ctrl+d to exit, change <mydockerimage> to the name of your image
+
+`docker run --rm -ti <mydockerimage>:latest /bin/sh`
+
