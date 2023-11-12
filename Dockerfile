@@ -45,12 +45,21 @@ RUN wget -O azcopy_linux_amd64_10.20.1.tar https://aka.ms/downloadazcopy-v10-lin
 tar -xzf azcopy_linux_amd64_10.20.1.tar &&\
 cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
 
-#Add Atlantis files
+#Add Atlantis source files
 COPY trunk_6693/.svn /app/.svn
 COPY trunk_6693/atlantis /app/atlantis
 
+#Add model files, shouls contain hydrofiles
+COPY atlantis_amps_mv_1 /app/model
+
+#source Atlantis
 RUN cd /app/atlantis && aclocal && autoheader && autoconf && automake -a && ./configure && make && make install
 
 WORKDIR /app/model
+
+ENTRYPOINT ["sh"]
+
+#this line can be uncommented, it will run Atlantis immediately after the container starts running
+#CMD ["amps_cal.sh"]
 
 

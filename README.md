@@ -1,4 +1,5 @@
 # Dockerfile to run Atlantis
+For resources and additional information see docker_resources.txt
 
 ## Dockerfile built on Ubuntu 20.04
 
@@ -10,22 +11,23 @@ Valid time zones listed here https://en.wikipedia.org/wiki/List_of_tz_database_t
 
 `ENV TZ America/Los_Angeles`
 
-## 2. Copy the Atlantis source directory within the same directory where the Dockerfile is stored <trunk>
+## 2. Change name of the Atlantis source files directory <trunk_name>. This directory should be stored within the same folder where the Dockerfile is stored.
 
 In the included Dockerfile this directory is trunk_6693 to indicate the code version 
 
 `COPY <trunk_name>/.svn /app/.svn`
 `COPY <trunk_name>/atlantis /app/atlantis`
 
-## 3. Build the image and run to check it works, these commands are for Linux Ubuntu 20.04
+## 3. Change name of the Atlantis model files directory <model_name>. This directory should be stored within the same folder where the Dockerfile is stored.
 
-edit dockerfile
+`COPY <model_name> /app/model`
 
-`nano Dockerfile`
+
+## 4. Build the image and run to check it works, these commands are for Linux Ubuntu 20.04. Change <mydockerimage> to your preferred name
 
 build dockerfile
 
-`docker build -t ampsdocker:latest .`
+`docker build -t <mydockerimagename>:latest .`
 
 list images, including intermediary images
 
@@ -33,7 +35,7 @@ list images, including intermediary images
 
 enter the image, press ctrl+d to exit
 
-`docker run --rm -ti ampsdocker:latest /bin/sh`
+`docker run --rm -ti <mydockerimagename>:latest /bin/sh`
 
 
 

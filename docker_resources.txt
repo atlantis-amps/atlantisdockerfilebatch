@@ -19,3 +19,6 @@ https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 Using ADD
 https://dockerlabs.collabnix.com/beginners/dockerfile/ADD-command.html
+
+Adding files to an image
+https://docs.docker.com/engine/reference/commandline/cp/
