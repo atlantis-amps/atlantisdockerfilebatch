@@ -1,9 +1,9 @@
 # Dockerfile to run Atlantis
 For resources and additional information see docker_resources.txt
 
-## Dockerfile built on Ubuntu 20.04
+Dockerfile built on Ubuntu 20.04
 
-## To create the Docker image first edit the Dockerfile
+### Before creating the Docker image, first edit the Dockerfile
 
 ## 1. Change the following line to your time zone
 
