@@ -16,6 +16,7 @@ Valid time zones listed here https://en.wikipedia.org/wiki/List_of_tz_database_t
 In the included Dockerfile this directory is trunk_6693 to indicate the code version 
 
 `COPY <trunk_name>/.svn /app/.svn`
+
 `COPY <trunk_name>/atlantis /app/atlantis`
 
 ## 3. Change name of the Atlantis model files directory <model_name>. This directory should be stored within the same folder where the Dockerfile is stored.
@@ -33,7 +34,7 @@ list images, including intermediary images
 
 `docker images -a`
 
-enter the image, press ctrl+d to exit
+enter the image, to exit press ctrl+d
 
 `docker run --rm -ti <mydockerimagename>:latest /bin/sh`
 
